@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool containsDuplicate(vector<int>& nums) {
+        map<int,int> m;
+       // int count=0;
+        for(int i=0;i<nums.size();i++)
+        {
+            //m[nums[i]]=count++  using this count variable this way increases  the value of count each time the loop runs and doesn't give number of times that unique element is occuring in the loop. thus avoid using this 
+            m[nums[i]]++;
+            
+        }
+        for(auto i=m.begin();i!=m.end();i++)
+        {
+            if(i->second>1)
+            {
+                return true;
+            }
+                
+                
+        }
+        return false;
+    }
+};
