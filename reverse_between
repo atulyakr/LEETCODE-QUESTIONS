@@ -1,0 +1,39 @@
+struct node* reversebetween(struct node* head,int left,int right)
+{
+
+    if(left==right)
+        {
+            return head;
+        }
+        struct node* curr1=head;
+        struct node* beforecurr1=curr1;
+        int count=1;
+        while(count<left-1 )
+        {
+            beforecurr1=curr1->next;   //struct node before struct node on the "left" index(curr1);
+            count++;
+        }
+        curr1=beforecurr1->next;
+        
+        struct node* curr2=curr1;
+        while(count<right-1)
+        {
+            curr2=curr2->next;
+            count++;
+        }
+        struct node* aftercurr2=curr2->next;
+
+        struct node* temp=curr1;
+        struct node* forward=temp;
+        struct node* prev=aftercurr2;
+        while(temp!=curr2->next)
+        {
+            forward=temp->next;
+            temp->next=prev;
+            prev=temp;
+            temp=forward;
+        }
+        beforecurr1->next=curr2;
+        return head;
+        
+}
