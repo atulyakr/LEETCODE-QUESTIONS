@@ -5,8 +5,6 @@ class Solution {
 public:
     vector<int> pivotArray(vector<int>& nums, int pivot) {
         vector <int> ans ;
-        int p;
-        int cnt=0;
         
         for(int i=0;i<nums.size();i++)
         {
@@ -23,15 +21,7 @@ public:
         {
             if(nums[j]>pivot)
                 ans.push_back(nums[j]);
-        }
-        
-       /* for(int k=0;k<ans.size();k++)
-        {
-            nums[k]=ans[k];
-        }
-        
-        return nums;*/
-        
+        }    
         return ans;
     }        
-};
+}
