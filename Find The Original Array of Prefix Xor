@@ -1,0 +1,18 @@
+//Question link: https://leetcode.com/problems/find-the-original-array-of-prefix-xor/
+
+TIME:O(n)   Space:O(n)(since we took an extra array space(arr))
+
+class Solution {
+public:
+    vector<int> findArray(vector<int>& pref) {
+        vector<int> arr;
+        arr.push_back(pref[0]);
+        int i =1;
+        while(i<pref.size())
+        {
+            arr.push_back(pref[i]^pref[i-1]);
+            i++;
+        }
+        return arr;
+    }
+};
