@@ -17,3 +17,35 @@ public:
         return res;
     }
 };
+
+for better understanding use this code to see the outputs
+
+class Solution {
+public:
+    string frequencySort(string s) {
+        vector<pair<int,char>> hash('z'+1,{0,0});
+        for(auto c: s)
+        {
+            //cout<<c<<endl;
+            hash[c] = {hash[c].first+1,c};
+        }
+            
+        for(auto x: hash)
+        {
+            cout<<x.first<<" "<<x.second<<endl;
+        }
+        cout<<"---*-------------------------*-------------------------------*-----"<<endl;
+        
+        sort(hash.begin(),hash.end());  //ye frequency ke basis me ascending order me sort kiya
+        
+        for(auto x: hash)
+        {
+            cout<<x.first<<" "<<x.second<<endl;
+        }
+        
+        string res ="";
+        for(auto p: hash)
+            res = string(p.first,p.second) + res;
+        return res;
+    }
+};
