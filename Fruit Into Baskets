@@ -1,0 +1,23 @@
+// Question link: https://leetcode.com/problems/fruit-into-baskets/
+
+int totalFruit(vector<int> &fruits)
+{
+    int ans = 0;
+    map<int, int> basket;
+    int left = 0, right = 0;
+    while (right < fruits.size())
+    {
+        basket[fruits[right]]++;
+        if (basket.size() <= 2)
+            ans = max(ans, right - left + 1);
+        else
+        {
+            basket[fruits[left]]--;
+            if (basket[fruits[left]] == 0)
+                basket.erase(fruits[left]);
+            left++;
+        }
+        right++;
+    }
+    return ans;
+}
